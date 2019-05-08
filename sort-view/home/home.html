@@ -1,0 +1,26 @@
+<div id="greeting">
+    <h1>Hello {{vm.user[0].firstname}}!</h1>
+    <button ng-click="logOut()">Logout</button>
+</div>
+<div id="users">
+    <h3>All registered users:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.allUsers">
+                <td>{{ user._id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstname }} {{ user.surname }}</td>
+                <td><i id="remove-user" class="far fa-trash-alt" ng-click="vm.deleteUser(user._id)"></i></td>
+            </tr>
+        </tbody>
+    </table>        
+</div>
+

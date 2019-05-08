@@ -1,0 +1,26 @@
+<div id="filter">
+    <div id="product-view">
+        <span id="brick-icon" ng-class="{'active': $parent.brickActive, 'not-active': !$parent.brickActive}">
+            <a href="#/!"><img src="images/bricks.svg" alt="" ng-click="$parent.brickActive = true"></a>
+        </span>
+        <span id="list-icon" ng-class="{'not-active': $parent.brickActive, 'active': !$parent.brickActive}">
+            <a href="#!list"><img src="images/list.svg" alt="" ng-click="$parent.brickActive = false"></a>
+        </span>
+    </div>
+<div id="search">
+    <div  id="items-amount-container" class="container">
+        <label for="itemsAmount">Items per page:</label>
+            <select name="itemsAmount" id="itemsAmount" class="dropdown" ng-model="$parent.itemsAmount" ng-options="option.value as option.name for option in options">
+            </select>
+        <span class="gray-text">Showing 1-{{ itemsAmount }} of {{ itemsTotal }} results</span>
+    </div>
+        <select name="sortby" id="filter-dropdown" class="dropdown" ng-model="$parent.sortColumn">
+            <option value="productname" ng-click="$parent.sortData('productname')">Name</option>
+            <option value="price" ng-click="$parent.sortData('price')">Price</option>
+            <option value="stars" ng-click="$parent.sortData('stars')">Rating</option>
+        </select>
+    <div class="input-container">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search from here.." ng-model="$parent.searchText">
+    </div>
+</div>

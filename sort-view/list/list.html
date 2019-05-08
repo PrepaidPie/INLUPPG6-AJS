@@ -1,0 +1,47 @@
+<div id="shop-info">
+    <div id="info-shipping" class="info-box">
+        <img src="images/shipping.svg" alt="">
+        <h5>Free Shipping</h5>
+        <small class="gray-text">Orders over $100</small>
+    </div>
+    <div id="info-returns" class="info-box">
+        <img src="images/return.svg" alt="">
+        <h5>Free Returns</h5>
+        <small class="gray-text">In 30 Days</small>
+    </div>
+    <div id="info-secure" class="info-box">
+        <img src="images/secure.svg" alt="">
+        <h5>100% Secure</h5>
+        <small class="gray-text">Shipping</small>
+    </div>
+    <div id="info-price" class="info-box">
+        <img src="images/price.svg" alt="">
+        <h5>Best Price</h5>
+        <small class="gray-text">Granted</small>
+    </div>
+</div>
+
+<div id="filter" ng-include="filterComponent"></div>
+
+<div id="products-list">
+    <div class="product-list" ng-repeat="product in products | orderBy: sortColumn | filter: searchText:wholeWord | limitTo: itemsAmount">
+        <img ng-src="{{ product.img }}">
+        <strong>{{ product.productname }}</strong>
+        <small class="brand">{{ product.brand }}</small>
+        <span class="orange-text-list">{{ "$" + product.price }}</span>
+        <span class="stars">
+            <i class="fas fa-star" ng-repeat="x in [].constructor(product.stars) track by $index"></i>
+        </span>
+    </div>
+</div>
+
+<div id="page-select-bottom">
+    <ul>
+        <li><i class="fas fa-arrow-left"></i></li>
+        <li class="active-page">01</li>
+        <li>02</li>
+        <li>...</li>
+        <li>04</li>
+        <li><i class="fas fa-arrow-right"></i></li>
+    </ul>
+</div>
